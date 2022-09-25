@@ -39,3 +39,7 @@ print(buyer_bike.CustomerID.unique().shape)
 print('---------Datos Faltantes------------')
 #Comprobación de datos faltantes 
 print(buyer_bike.astype(object).isnull().any())
+print('---------------------')
+print(buyer_bike.astype(object).isnull().any())
+print('---------------------')
+print(customer.astype(object).isnull().any())
