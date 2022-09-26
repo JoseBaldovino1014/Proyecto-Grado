@@ -42,5 +42,25 @@ print(buyer_bike.astype(object).isnull().any())
 print('---------------------')
 print(buyer_bike.astype(object).isnull().any())
 print('---------------------')
-print(customer.astype(object).isnull().any())
+print(customer.astype(np.object).isnull().any())
 print('---------------------')
+#Anteriormente se hizo la verificación de valores faltantes, al parecer ninguna caracteristica clave tiene valores faltantes 
+#los datos dupliplicados ahora se eliminan. 
+# Acontinuación se comprueba las estadisticas del conjunto de datos
+print('Conjuntos de datos de la información del cliente')
+print(customer.describe())
+print('-----------------------------')
+print('Conjuntos de datos de la información de gastos mensuales')
+print(spends_Month.describe())
+print('-----------------------------')
+print('Conjuntos de datos de la información de comprador de bicicletas')
+print(buyer_bike.describe())
+print('-----------------------------')
+#Recuento de los valores unicos y devuelve la frecuencia relativa dividiendo todos los valores por la sumas de los valores. 
+print(buyer_bike.BikeBuyer.value_counts(normalize=True))
+print('-----------------------------')
+#Se va unirá la columna del comprador de la bicicleta a la información del cliente para una tabla combinada. 
+# Para el desafío de datos de prueba no se proporciona AveMonthSpend por lo tanto no es una característica viable.
+print('Tabla convinada, columna del comprador de la bicicleta a la información del cliente')
+combinar = customer.merge(buyer_bike, on='CustomerID', how='left')
+print(combinar.head())
