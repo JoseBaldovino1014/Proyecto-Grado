@@ -64,3 +64,15 @@ print('-----------------------------')
 print('Tabla convinada, columna del comprador de la bicicleta a la información del cliente')
 combinar = customer.merge(buyer_bike, on='CustomerID', how='left')
 print(combinar.head())
+print('-------------------------------------------------')
+#El gráfico de caja es bueno para visualizar las características numéricas de la clasificación. 
+# Vamos a trazar esto y ver si hay alguna diferencia significativa en los cuartiles entre los compradores de bicicletas 
+# y los no compradores de bicicletas para ver si la característica numérica sería útil.
+#Acontinuación se define la función para trazar el diagrama de caja
+def plot_box(combinar, cols, col_x = 'BikeBuyer'):
+    for col in cols:
+        sns.set_style('withefrid')
+        sns.boxplot(col_x, col, data=combinar)
+        plt.xlabel(col_x)
+        plt.ylabel(col)
+        plt.show()
